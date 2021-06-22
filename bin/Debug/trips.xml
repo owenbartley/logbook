@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<driverslog>
+  <trip id="0001">
+    <duration>32</duration>
+    <date>02/02/2021</date>
+    <rain>True</rain>
+    <clear>False</clear>
+    <light>True</light>
+    <med>False</med>
+    <heavy>True</heavy>
+    <local>True</local>
+    <rural>False</rural>
+    <highway>False</highway>
+    <day>True</day>
+    <approved>False</approved>
+  </trip>
+</driverslog>
