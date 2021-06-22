@@ -28,7 +28,6 @@ namespace DriversLogbookApp
             public bool roadHighway;
             public bool roadRural;
             public bool day;
-            public bool night;
             public bool approved;
         }
 
@@ -69,7 +68,6 @@ namespace DriversLogbookApp
                 bool roadRural = Convert.ToBoolean(trip["rural"].InnerText);
                 bool roadHighway = Convert.ToBoolean(trip["highway"].InnerText);
                 bool day = Convert.ToBoolean(trip["day"].InnerText);
-                bool night = Convert.ToBoolean(trip["night"].InnerText);
                 bool approved = Convert.ToBoolean(trip["approved"].InnerText);
                 theTrip.tripID = ID;
                 theTrip.duration = duration;
@@ -83,7 +81,6 @@ namespace DriversLogbookApp
                 theTrip.roadHighway = roadHighway;
                 theTrip.roadRural = roadRural;
                 theTrip.day = day;
-                theTrip.night = night;
                 theTrip.approved = approved;
 
                 //Calculate total hours
