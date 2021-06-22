@@ -46,9 +46,8 @@
             this.chkBxRural = new System.Windows.Forms.CheckBox();
             this.chkBxLocal = new System.Windows.Forms.CheckBox();
             this.grpBxTime = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbBxTime = new System.Windows.Forms.ComboBox();
             this.chkBxApproved = new System.Windows.Forms.CheckBox();
+            this.chkBxTime = new System.Windows.Forms.CheckBox();
             this.grpBxWeather.SuspendLayout();
             this.grpBxTraffic.SuspendLayout();
             this.grpBxRoad.SuspendLayout();
@@ -232,49 +231,36 @@
             // 
             // grpBxTime
             // 
-            this.grpBxTime.Controls.Add(this.label2);
-            this.grpBxTime.Controls.Add(this.cmbBxTime);
+            this.grpBxTime.Controls.Add(this.chkBxTime);
             this.grpBxTime.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBxTime.Location = new System.Drawing.Point(135, 276);
             this.grpBxTime.Name = "grpBxTime";
-            this.grpBxTime.Size = new System.Drawing.Size(116, 87);
+            this.grpBxTime.Size = new System.Drawing.Size(116, 57);
             this.grpBxTime.TabIndex = 7;
             this.grpBxTime.TabStop = false;
             this.grpBxTime.Text = "Time";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Leelawadee UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Day or Night";
-            // 
-            // cmbBxTime
-            // 
-            this.cmbBxTime.Font = new System.Drawing.Font("Leelawadee UI Semilight", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBxTime.FormattingEnabled = true;
-            this.cmbBxTime.Items.AddRange(new object[] {
-            "Day",
-            "Night"});
-            this.cmbBxTime.Location = new System.Drawing.Point(10, 50);
-            this.cmbBxTime.Name = "cmbBxTime";
-            this.cmbBxTime.Size = new System.Drawing.Size(97, 21);
-            this.cmbBxTime.TabIndex = 0;
-            this.cmbBxTime.Text = "Choose One";
-            // 
             // chkBxApproved
             // 
             this.chkBxApproved.AutoSize = true;
-            this.chkBxApproved.Font = new System.Drawing.Font("Leelawadee UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBxApproved.Location = new System.Drawing.Point(138, 374);
+            this.chkBxApproved.Font = new System.Drawing.Font("Leelawadee UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBxApproved.Location = new System.Drawing.Point(149, 352);
             this.chkBxApproved.Name = "chkBxApproved";
-            this.chkBxApproved.Size = new System.Drawing.Size(118, 16);
+            this.chkBxApproved.Size = new System.Drawing.Size(81, 30);
             this.chkBxApproved.TabIndex = 8;
-            this.chkBxApproved.Text = "Supervisor Approval";
+            this.chkBxApproved.Text = "Supervisor\r\nApproval";
             this.chkBxApproved.UseVisualStyleBackColor = true;
+            // 
+            // chkBxTime
+            // 
+            this.chkBxTime.AutoSize = true;
+            this.chkBxTime.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBxTime.Location = new System.Drawing.Point(14, 24);
+            this.chkBxTime.Name = "chkBxTime";
+            this.chkBxTime.Size = new System.Drawing.Size(78, 23);
+            this.chkBxTime.TabIndex = 0;
+            this.chkBxTime.Text = "Daytime";
+            this.chkBxTime.UseVisualStyleBackColor = true;
             // 
             // NewTrip
             // 
@@ -325,8 +311,7 @@
         private System.Windows.Forms.CheckBox chkBxRural;
         private System.Windows.Forms.CheckBox chkBxLocal;
         private System.Windows.Forms.GroupBox grpBxTime;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbBxTime;
         private System.Windows.Forms.CheckBox chkBxApproved;
+        private System.Windows.Forms.CheckBox chkBxTime;
     }
 }
