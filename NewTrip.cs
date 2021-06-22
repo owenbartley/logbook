@@ -28,7 +28,7 @@ namespace DriversLogbookApp
         public class Trip
         {
             public string date;
-            public int duration;
+            public string duration;
             public bool weatherRain;
             public bool weatherClear;
             public bool trafficLight;
@@ -68,18 +68,18 @@ namespace DriversLogbookApp
                 //Get input data
 
                 Trip t = new Trip();
-
+                t.duration = duration;
                 t.weatherClear = chkBxClear.Checked;
                 t.weatherRain = chkBxRain.Checked;
-                bool trafficLight = chkBxLight.Checked;
-                bool trafficMed = chkBxMed.Checked;
-                bool trafficHeavy = chkBxHeavy.Checked;
-                bool roadLocal = chkBxLocal.Checked;
-                bool roadRural = chkBxRural.Checked;
-                bool roadHighway = chkBxHighway.Checked;
-                bool day = chkBxTime.Checked;
-                bool approved = chkBxApproved.Checked;
-                WriteTripData(filePath);
+                t.trafficLight = chkBxLight.Checked;
+                t.trafficMed = chkBxMed.Checked;
+                t.trafficHeavy = chkBxHeavy.Checked;
+                t.roadLocal = chkBxLocal.Checked;
+                t.roadRural = chkBxRural.Checked;
+                t.roadHighway = chkBxHighway.Checked;
+                t.day = chkBxTime.Checked;
+                t.approved = chkBxApproved.Checked;
+                WriteTripData(filePath, t);
 
                 //Go back to Home form
                 Hide();
@@ -89,7 +89,6 @@ namespace DriversLogbookApp
         }
 
         public void WriteTripData(string filePath, Trip t)
-        //void WriteTripData(XmlWriter writer, string id, string date, string duration, string weatherRain, string weatherClear, string trafficLight, string trafficMed, string trafficHeavy, string roadLocal, string roadRural, string roadHighway, string dayNight, string approved)
         {
             if (!File.Exists(filePath))
             {
@@ -102,18 +101,18 @@ namespace DriversLogbookApp
                     xmlWriter.WriteStartElement("trips");
 
                     xmlWriter.WriteStartElement("trip");
-                    xmlWriter.WriteElementString("duration",t.duration);
+                    xmlWriter.WriteElementString("duration", Convert.ToString(t.duration));
                     xmlWriter.WriteElementString("date", date);
-                    xmlWriter.WriteElementString("rain", weatherRain);
-                    xmlWriter.WriteElementString("clear", weatherClear);
-                    xmlWriter.WriteElementString("light", trafficLight);
-                    xmlWriter.WriteElementString("med", trafficMed);
-                    xmlWriter.WriteElementString("heavy", trafficHeavy);
-                    xmlWriter.WriteElementString("local", roadLocal);
-                    xmlWriter.WriteElementString("rural", roadRural);
-                    xmlWriter.WriteElementString("highway", roadHighway);
-                    xmlWriter.WriteElementString("day", dayNight);
-                    xmlWriter.WriteElementString("approved", approved);
+                    xmlWriter.WriteElementString("rain", Convert.ToString(t.weatherRain));
+                    xmlWriter.WriteElementString("clear", Convert.ToString(t.weatherClear));
+                    xmlWriter.WriteElementString("light", Convert.ToString(t.trafficLight));
+                    xmlWriter.WriteElementString("med", Convert.ToString(t.trafficMed));
+                    xmlWriter.WriteElementString("heavy", Convert.ToString(t.trafficHeavy));
+                    xmlWriter.WriteElementString("local", Convert.ToString(t.roadLocal));
+                    xmlWriter.WriteElementString("rural", Convert.ToString(t.roadRural));
+                    xmlWriter.WriteElementString("highway", Convert.ToString(t.roadHighway));
+                    xmlWriter.WriteElementString("day", Convert.ToString(t.day));
+                    xmlWriter.WriteElementString("approved", Convert.ToString(t.approved));
                     xmlWriter.WriteEndElement();
 
                     xmlWriter.WriteEndElement();
@@ -125,24 +124,23 @@ namespace DriversLogbookApp
             else
             {
                 XDocument xDocument = XDocument.Load(filePath);
-                XElement root = xDocument.Element("School");
-                IEnumerable<XElement> rows = root.Descendants("Student");
+                XElement root = xDocument.Element("Trip");
+                IEnumerable<XElement> rows = root.Descendants("trips");
                 XElement firstRow = rows.First();
                 firstRow.AddBeforeSelf(
                    new XElement("trip",
-                   new XElement("id", id),
-                   new XElement("duration", duration),
+                   new XElement("duration", t.duration),
                    new XElement("date", date),
-                   new XElement("rain", weatherRain),
-                   new XElement("clear", weatherClear),
-                   new XElement("light", trafficLight),
-                   new XElement("med", trafficMed),
-                   new XElement("heavy", trafficHeavy),
-                   new XElement("local", roadLocal),
-                   new XElement("rural", roadRural),
-                   new XElement("highway", roadHighway),
-                   new XElement("day", dayNight),
-                   new XElement("approved", approved)));
+                   new XElement("rain", t.weatherRain),
+                   new XElement("clear", t.weatherClear),
+                   new XElement("light", t.trafficLight),
+                   new XElement("med", t.trafficMed),
+                   new XElement("heavy", t.trafficHeavy),
+                   new XElement("local", t.roadLocal),
+                   new XElement("rural", t.roadRural),
+                   new XElement("highway", t.roadHighway),
+                   new XElement("day", t.day),
+                   new XElement("approved", t.approved)));
                 xDocument.Save("Test.xml");
             }
         }
