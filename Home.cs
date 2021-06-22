@@ -16,7 +16,6 @@ namespace DriversLogbookApp
     {
         public class Trip
         {
-            public int tripID;
             public string date;
             public int duration;
             public bool weatherRain;
@@ -56,7 +55,6 @@ namespace DriversLogbookApp
             foreach (XmlNode trip in xmlTripList)
             {
                 Trip theTrip = new Trip();
-                int ID = Convert.ToInt32(trip.Attributes["id"].Value);
                 int duration = Convert.ToInt32(trip["duration"].InnerText); 
                 string date = trip["date"].InnerText;
                 bool weatherRain = Convert.ToBoolean(trip["rain"].InnerText);
@@ -69,7 +67,6 @@ namespace DriversLogbookApp
                 bool roadHighway = Convert.ToBoolean(trip["highway"].InnerText);
                 bool day = Convert.ToBoolean(trip["day"].InnerText);
                 bool approved = Convert.ToBoolean(trip["approved"].InnerText);
-                theTrip.tripID = ID;
                 theTrip.duration = duration;
                 theTrip.date = date;
                 theTrip.weatherRain = weatherRain;

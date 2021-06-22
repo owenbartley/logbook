@@ -24,6 +24,23 @@ namespace DriversLogbookApp
 
         bool start = true;
         string date = DateTime.Now.ToShortDateString();
+
+        public class Trip
+        {
+            public string date;
+            public int duration;
+            public bool weatherRain;
+            public bool weatherClear;
+            public bool trafficLight;
+            public bool trafficMed;
+            public bool trafficHeavy;
+            public bool roadLocal;
+            public bool roadHighway;
+            public bool roadRural;
+            public bool day;
+            public bool approved;
+        }
+
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
             //Turn button into switch and start timer
@@ -49,8 +66,11 @@ namespace DriversLogbookApp
                 //lblDuration.Text = duration;
 
                 //Get input data
-                bool weatherClear = chkBxClear.Checked;
-                bool weatherRain = chkBxRain.Checked;
+
+                Trip t = new Trip();
+
+                t.weatherClear = chkBxClear.Checked;
+                t.weatherRain = chkBxRain.Checked;
                 bool trafficLight = chkBxLight.Checked;
                 bool trafficMed = chkBxMed.Checked;
                 bool trafficHeavy = chkBxHeavy.Checked;
@@ -68,13 +88,9 @@ namespace DriversLogbookApp
             }
         }
 
-        public void WriteTripData(string filePath)
+        public void WriteTripData(string filePath, Trip t)
         //void WriteTripData(XmlWriter writer, string id, string date, string duration, string weatherRain, string weatherClear, string trafficLight, string trafficMed, string trafficHeavy, string roadLocal, string roadRural, string roadHighway, string dayNight, string approved)
         {
-            //Get ID Number
-            int id = 0000;
-            //ID + XMLTrips.Count
-
             if (!File.Exists(filePath))
             {
                 XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
@@ -86,8 +102,7 @@ namespace DriversLogbookApp
                     xmlWriter.WriteStartElement("trips");
 
                     xmlWriter.WriteStartElement("trip");
-                    xmlWriter.WriteAttributeString("id", id);
-                    xmlWriter.WriteElementString("duration", duration);
+                    xmlWriter.WriteElementString("duration",t.duration);
                     xmlWriter.WriteElementString("date", date);
                     xmlWriter.WriteElementString("rain", weatherRain);
                     xmlWriter.WriteElementString("clear", weatherClear);
