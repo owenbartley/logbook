@@ -46,8 +46,8 @@
             this.chkBxRural = new System.Windows.Forms.CheckBox();
             this.chkBxLocal = new System.Windows.Forms.CheckBox();
             this.grpBxTime = new System.Windows.Forms.GroupBox();
-            this.chkBxApproved = new System.Windows.Forms.CheckBox();
             this.chkBxTime = new System.Windows.Forms.CheckBox();
+            this.chkBxApproved = new System.Windows.Forms.CheckBox();
             this.grpBxWeather.SuspendLayout();
             this.grpBxTraffic.SuspendLayout();
             this.grpBxRoad.SuspendLayout();
@@ -77,6 +77,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // lblDate
@@ -240,17 +241,6 @@
             this.grpBxTime.TabStop = false;
             this.grpBxTime.Text = "Time";
             // 
-            // chkBxApproved
-            // 
-            this.chkBxApproved.AutoSize = true;
-            this.chkBxApproved.Font = new System.Drawing.Font("Leelawadee UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBxApproved.Location = new System.Drawing.Point(149, 352);
-            this.chkBxApproved.Name = "chkBxApproved";
-            this.chkBxApproved.Size = new System.Drawing.Size(81, 30);
-            this.chkBxApproved.TabIndex = 8;
-            this.chkBxApproved.Text = "Supervisor\r\nApproval";
-            this.chkBxApproved.UseVisualStyleBackColor = true;
-            // 
             // chkBxTime
             // 
             this.chkBxTime.AutoSize = true;
@@ -261,6 +251,17 @@
             this.chkBxTime.TabIndex = 0;
             this.chkBxTime.Text = "Daytime";
             this.chkBxTime.UseVisualStyleBackColor = true;
+            // 
+            // chkBxApproved
+            // 
+            this.chkBxApproved.AutoSize = true;
+            this.chkBxApproved.Font = new System.Drawing.Font("Leelawadee UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBxApproved.Location = new System.Drawing.Point(149, 352);
+            this.chkBxApproved.Name = "chkBxApproved";
+            this.chkBxApproved.Size = new System.Drawing.Size(81, 30);
+            this.chkBxApproved.TabIndex = 8;
+            this.chkBxApproved.Text = "Supervisor\r\nApproval";
+            this.chkBxApproved.UseVisualStyleBackColor = true;
             // 
             // NewTrip
             // 

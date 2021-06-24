@@ -48,25 +48,24 @@ namespace DriversLogbookApp
             {
                 btnStartStop.Text = "Stop";
                 start = false;
+                elapsedTime = 0;
                 timer1.Start();
-                //Updates the duration every second
-                /*
-                while (true)
-                {
-                    string duration = timer1.ToString();
-                    lblDuration.Text = duration;
-                }
-                */
             }
             else
             {
                 timer1.Stop();
-                string duration = timer1.ToString();
-                //Testing the timer
-                //lblDuration.Text = duration;
+                string duration = elapsedTime.ToString();
 
-                //Get input data
+                //Validate input data
+                //Validate weather
+                if (weatherClear = false & weatherRain = false)
+                {
 
+                }
+                //Validate traffic
+                //Validate road type
+
+                //Add input data into array
                 Trip t = new Trip();
                 t.duration = duration;
                 t.weatherClear = chkBxClear.Checked;
@@ -79,7 +78,7 @@ namespace DriversLogbookApp
                 t.roadHighway = chkBxHighway.Checked;
                 t.day = chkBxTime.Checked;
                 t.approved = chkBxApproved.Checked;
-                WriteTripData(filePath, t);
+                WriteTripData(t);
 
                 //Go back to Home form
                 Hide();
@@ -88,7 +87,7 @@ namespace DriversLogbookApp
             }
         }
 
-        public void WriteTripData(string filePath, Trip t)
+        public void WriteTripData(Trip t)
         {
             if (!File.Exists(filePath))
             {
@@ -98,7 +97,7 @@ namespace DriversLogbookApp
                 using (XmlWriter xmlWriter = XmlWriter.Create("trips.xml", xmlWriterSettings))
                 {
                     xmlWriter.WriteStartDocument();
-                    xmlWriter.WriteStartElement("trips");
+                    xmlWriter.WriteStartElement("driverslog");
 
                     xmlWriter.WriteStartElement("trip");
                     xmlWriter.WriteElementString("duration", Convert.ToString(t.duration));
@@ -124,8 +123,8 @@ namespace DriversLogbookApp
             else
             {
                 XDocument xDocument = XDocument.Load(filePath);
-                XElement root = xDocument.Element("Trip");
-                IEnumerable<XElement> rows = root.Descendants("trips");
+                XElement root = xDocument.Element("driverslog");
+                IEnumerable<XElement> rows = root.Descendants("trip");
                 XElement firstRow = rows.First();
                 firstRow.AddBeforeSelf(
                    new XElement("trip",
@@ -141,13 +140,19 @@ namespace DriversLogbookApp
                    new XElement("highway", t.roadHighway),
                    new XElement("day", t.day),
                    new XElement("approved", t.approved)));
-                xDocument.Save("Test.xml");
+                xDocument.Save("test.xml");
             }
+            
         }
 
+        int elapsedTime = 0;
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            
+            elapsedTime = elapsedTime + 1;
+            var time = TimeSpan.FromSeconds(elapsedTime);
+
+            //Get current duration and display it
+            lblDuration.Text = time.ToString();
         }
 
         private void NewTrip_Load(object sender, EventArgs e)

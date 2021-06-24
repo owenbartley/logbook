@@ -129,7 +129,7 @@
             // 
             this.lblUnapproved.AutoSize = true;
             this.lblUnapproved.Font = new System.Drawing.Font("Leelawadee UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnapproved.Location = new System.Drawing.Point(75, 80);
+            this.lblUnapproved.Location = new System.Drawing.Point(75, 78);
             this.lblUnapproved.Name = "lblUnapproved";
             this.lblUnapproved.Size = new System.Drawing.Size(114, 13);
             this.lblUnapproved.TabIndex = 6;

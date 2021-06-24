@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <driverslog>
-  <trip id="0001">
+  <trip>
     <duration>32</duration>
     <date>02/02/2021</date>
     <rain>True</rain>
