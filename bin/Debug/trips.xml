@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <driverslog>
   <trip>
-    <duration>34</duration>
+    <duration>342</duration>
     <date>13/07/2021</date>
     <rain>false</rain>
     <clear>true</clear>
@@ -15,7 +15,7 @@
     <approved>true</approved>
   </trip>
   <trip>
-    <duration>32</duration>
+    <duration>320</duration>
     <date>02/02/2021</date>
     <rain>True</rain>
     <clear>False</clear>

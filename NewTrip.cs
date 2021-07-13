@@ -28,7 +28,7 @@ namespace DriversLogbookApp
         public class Trip
         {
             public string date;
-            public string duration;
+            public double duration;
             public bool weatherRain;
             public bool weatherClear;
             public bool trafficLight;
@@ -54,11 +54,11 @@ namespace DriversLogbookApp
             else
             {
                 timer1.Stop();
-                string duration = elapsedTime.ToString();
+                double duration = elapsedTime;
 
                 //Add input data into array
                 Trip t = new Trip();
-                t.duration = duration;
+                t.duration = Convert.ToDouble(duration);
                 t.weatherClear = chkBxClear.Checked;
                 t.weatherRain = chkBxRain.Checked;
                 t.trafficLight = chkBxLight.Checked;
@@ -109,38 +109,8 @@ namespace DriversLogbookApp
             if (!File.Exists(filePath))
             {
                 XDocument xmlDoc = XDocument.Load(filePath);
-                xmlDoc.Element("driverslog").Add(new XElement("trip", new XElement("duration"), Convert.ToString(t.duration)), new XElement("date", date), new XElement("rain", Convert.ToString(t.weatherRain)), new XElement("clear", Convert.ToString(t.weatherClear)), new XElement("light", Convert.ToString(t.trafficLight)), new XElement("med", Convert.ToString(t.trafficMed)), new XElement("heavy", Convert.ToString(t.trafficHeavy)), new XElement("local", Convert.ToString(t.roadLocal)), new XElement("rural", Convert.ToString(t.roadRural)), new XElement("highway", Convert.ToString(t.roadHighway)), new XElement("day", Convert.ToString(t.day)), new XElement("approved", Convert.ToString(t.approved)));
+                xmlDoc.Element("driverslog").Add(new XElement("trip"), new XElement("duration", Convert.ToString(t.duration)), new XElement("date", date), new XElement("rain", Convert.ToString(t.weatherRain)), new XElement("clear", Convert.ToString(t.weatherClear)), new XElement("light", Convert.ToString(t.trafficLight)), new XElement("med", Convert.ToString(t.trafficMed)), new XElement("heavy", Convert.ToString(t.trafficHeavy)), new XElement("local", Convert.ToString(t.roadLocal)), new XElement("rural", Convert.ToString(t.roadRural)), new XElement("highway", Convert.ToString(t.roadHighway)), new XElement("day", Convert.ToString(t.day)), new XElement("approved", Convert.ToString(t.approved)));
                 xmlDoc.Save(filePath);
-                /*
-                XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-                xmlWriterSettings.Indent = true;
-                xmlWriterSettings.NewLineOnAttributes = true;
-                using (XmlWriter xmlWriter = XmlWriter.Create("trips.xml", xmlWriterSettings))
-                {
-                    xmlWriter.WriteStartDocument();
-                    xmlWriter.WriteStartElement("driverslog");
-
-                    xmlWriter.WriteStartElement("trip");
-                    xmlWriter.WriteElementString("duration", Convert.ToString(t.duration));
-                    xmlWriter.WriteElementString("date", date);
-                    xmlWriter.WriteElementString("rain", Convert.ToString(t.weatherRain));
-                    xmlWriter.WriteElementString("clear", Convert.ToString(t.weatherClear));
-                    xmlWriter.WriteElementString("light", Convert.ToString(t.trafficLight));
-                    xmlWriter.WriteElementString("med", Convert.ToString(t.trafficMed));
-                    xmlWriter.WriteElementString("heavy", Convert.ToString(t.trafficHeavy));
-                    xmlWriter.WriteElementString("local", Convert.ToString(t.roadLocal));
-                    xmlWriter.WriteElementString("rural", Convert.ToString(t.roadRural));
-                    xmlWriter.WriteElementString("highway", Convert.ToString(t.roadHighway));
-                    xmlWriter.WriteElementString("day", Convert.ToString(t.day));
-                    xmlWriter.WriteElementString("approved", Convert.ToString(t.approved));
-                    xmlWriter.WriteEndElement();
-
-                    xmlWriter.WriteEndElement();
-                    xmlWriter.WriteEndDocument();
-                    xmlWriter.Flush();
-                    xmlWriter.Close();
-                }
-                */
             }
             else
             {
@@ -164,7 +134,6 @@ namespace DriversLogbookApp
                    new XElement("approved", t.approved)));
                 xDocument.Save("trips.xml");
             }
-            
         }
 
         int elapsedTime = 0;

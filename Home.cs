@@ -17,7 +17,7 @@ namespace DriversLogbookApp
         public class Trip
         {
             public string date;
-            public int duration;
+            public double duration;
             public bool weatherRain;
             public bool weatherClear;
             public bool trafficLight;
@@ -51,11 +51,11 @@ namespace DriversLogbookApp
 
             //To iterate though the array
             int index = 0;
-            int totalHours = 0;
+            double totalSeconds = 0;
             foreach (XmlNode trip in xmlTripList)
             {
                 Trip theTrip = new Trip();
-                int duration = Convert.ToInt32(trip["duration"].InnerText); 
+                double duration = Convert.ToDouble(trip["duration"].InnerText); 
                 string date = trip["date"].InnerText;
                 bool weatherRain = Convert.ToBoolean(trip["rain"].InnerText);
                 bool weatherClear = Convert.ToBoolean(trip["clear"].InnerText);
@@ -82,12 +82,13 @@ namespace DriversLogbookApp
 
                 //Calculate total hours
                 //Variables to hold running totals
-                totalHours = totalHours + duration;
+                totalSeconds = totalSeconds + duration;
 
                 trips[index] = theTrip;
                 index++;
 
-                lblHoursTotal.Text = totalHours.ToString() + " Seconds";
+                //Display total hours
+                lblHoursTotal.Text = (totalSeconds).ToString() + " Seconds";
             }
         }
 
