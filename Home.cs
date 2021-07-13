@@ -87,7 +87,7 @@ namespace DriversLogbookApp
                 trips[index] = theTrip;
                 index++;
 
-                lblHoursTotal.Text = totalHours.ToString() + " Minutes";
+                lblHoursTotal.Text = totalHours.ToString() + " Seconds";
             }
         }
 

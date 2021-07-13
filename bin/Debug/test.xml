@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <driverslog>
   <trip>
-    <duration>63</duration>
-    <date>24/06/2021</date>
+    <duration>1</duration>
+    <date>13/07/2021</date>
     <rain>false</rain>
     <clear>true</clear>
     <light>false</light>
-    <med>false</med>
-    <heavy>true</heavy>
+    <med>true</med>
+    <heavy>false</heavy>
     <local>false</local>
-    <rural>true</rural>
-    <highway>false</highway>
+    <rural>false</rural>
+    <highway>true</highway>
     <day>true</day>
-    <approved>true</approved>
+    <approved>false</approved>
   </trip>
   <trip>
     <duration>32</duration>

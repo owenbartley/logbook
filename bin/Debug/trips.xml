@@ -1,5 +1,19 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <driverslog>
+  <trip>
+    <duration>34</duration>
+    <date>13/07/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
   <trip>
     <duration>32</duration>
     <date>02/02/2021</date>

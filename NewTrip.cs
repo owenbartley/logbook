@@ -56,15 +56,6 @@ namespace DriversLogbookApp
                 timer1.Stop();
                 string duration = elapsedTime.ToString();
 
-                //Validate input data
-                //Validate weather
-                if (weatherClear = false & weatherRain = false)
-                {
-
-                }
-                //Validate traffic
-                //Validate road type
-
                 //Add input data into array
                 Trip t = new Trip();
                 t.duration = duration;
@@ -78,12 +69,38 @@ namespace DriversLogbookApp
                 t.roadHighway = chkBxHighway.Checked;
                 t.day = chkBxTime.Checked;
                 t.approved = chkBxApproved.Checked;
-                WriteTripData(t);
 
-                //Go back to Home form
-                Hide();
-                Home newHomeForm = new Home();
-                newHomeForm.ShowDialog();
+                //Validate input data
+                //Validate weather
+                if(t.weatherClear == false & t.weatherRain == false)
+                {
+                    MessageBox.Show("No Weather Selected", "Error");
+                }
+                else
+                {
+                    //Validate traffic
+                    if (t.trafficLight == false & t.trafficMed == false & t.trafficHeavy == false)
+                    {
+                        MessageBox.Show("No Traffic Level Selected", "Error");
+                    }
+                    else
+                    {
+                        //Validate road type
+                        if (t.roadLocal == false & t.roadRural == false & t.roadHighway == false)
+                        {
+                            MessageBox.Show("No Road Type Selected", "Error");
+                        }
+                        else
+                        {
+                            //Save data to XML document
+                            WriteTripData(t);
+                            //Go back to Home form
+                            Hide();
+                            Home newHomeForm = new Home();
+                            newHomeForm.ShowDialog();
+                        }
+                    }
+                }
             }
         }
 
@@ -91,6 +108,10 @@ namespace DriversLogbookApp
         {
             if (!File.Exists(filePath))
             {
+                XDocument xmlDoc = XDocument.Load(filePath);
+                xmlDoc.Element("driverslog").Add(new XElement("trip", new XElement("duration"), Convert.ToString(t.duration)), new XElement("date", date), new XElement("rain", Convert.ToString(t.weatherRain)), new XElement("clear", Convert.ToString(t.weatherClear)), new XElement("light", Convert.ToString(t.trafficLight)), new XElement("med", Convert.ToString(t.trafficMed)), new XElement("heavy", Convert.ToString(t.trafficHeavy)), new XElement("local", Convert.ToString(t.roadLocal)), new XElement("rural", Convert.ToString(t.roadRural)), new XElement("highway", Convert.ToString(t.roadHighway)), new XElement("day", Convert.ToString(t.day)), new XElement("approved", Convert.ToString(t.approved)));
+                xmlDoc.Save(filePath);
+                /*
                 XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
                 xmlWriterSettings.Indent = true;
                 xmlWriterSettings.NewLineOnAttributes = true;
@@ -119,6 +140,7 @@ namespace DriversLogbookApp
                     xmlWriter.Flush();
                     xmlWriter.Close();
                 }
+                */
             }
             else
             {
@@ -140,7 +162,7 @@ namespace DriversLogbookApp
                    new XElement("highway", t.roadHighway),
                    new XElement("day", t.day),
                    new XElement("approved", t.approved)));
-                xDocument.Save("test.xml");
+                xDocument.Save("trips.xml");
             }
             
         }
