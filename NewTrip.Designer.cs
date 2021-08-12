@@ -74,6 +74,7 @@
             this.lblDuration.Size = new System.Drawing.Size(94, 28);
             this.lblDuration.TabIndex = 1;
             this.lblDuration.Text = "00:00:00";
+            this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -84,11 +85,12 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Leelawadee UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(98, 68);
+            this.lblDate.Location = new System.Drawing.Point(89, 68);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(67, 19);
+            this.lblDate.Size = new System.Drawing.Size(83, 19);
             this.lblDate.TabIndex = 2;
-            this.lblDate.Text = "00/00/00";
+            this.lblDate.Text = "00/00/0000";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 

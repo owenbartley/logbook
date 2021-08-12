@@ -52,6 +52,18 @@ namespace DriversLogbookApp
             //To iterate though the array
             int index = 0;
             double totalSeconds = 0;
+            int highwayTotal = 0;
+            int localTotal = 0;
+            int ruralTotal = 0;
+            int clearTotal = 0;
+            int rainTotal = 0;
+            int lightTotal = 0;
+            int medTotal = 0;
+            int heavyTotal = 0;
+            int dayTotal = 0;
+            int nightTotal = 0;
+            int unapproved = 0;
+
             foreach (XmlNode trip in xmlTripList)
             {
                 Trip theTrip = new Trip();
@@ -83,12 +95,91 @@ namespace DriversLogbookApp
                 //Calculate total hours
                 //Variables to hold running totals
                 totalSeconds = totalSeconds + duration;
+                //Convert from seconds to hours
+                TimeSpan totalHours = TimeSpan.FromSeconds(totalSeconds);
+                //here backslash is must to tell that colon is
+                //not the part of format, it just a character that we want in output
+                string strTotalHours = totalHours.ToString(@"hh\:mm");
+
+                //Calculate total unapproved hours
+
+                //Calculate total daytime trips
+                if(day == true)
+                {
+                    dayTotal = dayTotal + 1;
+                }
+                //Calculate total nighttime trips
+                else
+                {
+                    nightTotal = nightTotal + 1;
+                }
+                //Calculate total highway trips
+                if(roadHighway == true)
+                {
+                    highwayTotal = highwayTotal + 1;
+                }
+                //Calculate total local trips
+                if(roadLocal == true)
+                {
+                    localTotal = localTotal + 1;
+                }
+                //Calculate total rural trips
+                if(roadRural == true)
+                {
+                    ruralTotal = ruralTotal + 1;
+                }
+                //Calculete total light traffic
+                if(trafficLight == true)
+                {
+                    lightTotal = lightTotal + 1;
+                }
+                //Calculate total med traffic
+                if(trafficMed == true)
+                {
+                    medTotal = medTotal + 1;
+                }
+                //Calculate total heavy traffic
+                if(trafficHeavy == true)
+                {
+                    heavyTotal = heavyTotal + 1;
+                }
+                //Calculate total clear trips
+                if(weatherClear == true)
+                {
+                    clearTotal = clearTotal + 1;
+                }
+                //Calcualte total rainy trips
+                else
+                {
+                    rainTotal = rainTotal + 1;
+                }
 
                 trips[index] = theTrip;
                 index++;
 
+                //Display unapproved total
                 //Display total hours
-                lblHoursTotal.Text = (totalSeconds).ToString() + " Seconds";
+                lblHoursTotal.Text = strTotalHours + " Total Hours";
+                //Display highway total
+                lblHighwayTotal.Text = highwayTotal.ToString();
+                //Display local total
+                lblLocalTotal.Text = localTotal.ToString();
+                //Display rural total
+                lblRuralTotal.Text = ruralTotal.ToString();
+                //Display light total
+                lblLightTotal.Text = lightTotal.ToString();
+                //Display med total
+                lblMedTotal.Text = medTotal.ToString();
+                //Display heavy total
+                lblHeavyTotal.Text = heavyTotal.ToString();
+                //Display clear total
+                lblClearTotal.Text = clearTotal.ToString();
+                //Display rainy total
+                lblRainTotal.Text = rainTotal.ToString();
+                //Display day total
+                lblDayTotal.Text = dayTotal + "Day trips total";
+                //Display night total
+                lblNightTotal.Text = nightTotal + "Night trips total";
             }
         }
 
@@ -119,6 +210,11 @@ namespace DriversLogbookApp
             Hide();
             Approval newApprovalForm = new Approval();
             newApprovalForm.ShowDialog();
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

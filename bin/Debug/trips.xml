@@ -1,6 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <driverslog>
   <trip>
+    <duration>19</duration>
+    <date>12/08/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>true</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>true</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>639</duration>
+    <date>15/07/2021</date>
+    <rain>true</rain>
+    <clear>false</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>true</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>false</highway>
+    <day>false</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>10</duration>
+    <date>15/07/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
     <duration>342</duration>
     <date>13/07/2021</date>
     <rain>false</rain>

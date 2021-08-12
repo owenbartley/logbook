@@ -106,16 +106,17 @@ namespace DriversLogbookApp
 
         public void WriteTripData(Trip t)
         {
+            //Load document
+            XDocument xmlDoc = XDocument.Load(filePath);
             if (!File.Exists(filePath))
             {
-                XDocument xmlDoc = XDocument.Load(filePath);
+                //Append input data into XML
                 xmlDoc.Element("driverslog").Add(new XElement("trip"), new XElement("duration", Convert.ToString(t.duration)), new XElement("date", date), new XElement("rain", Convert.ToString(t.weatherRain)), new XElement("clear", Convert.ToString(t.weatherClear)), new XElement("light", Convert.ToString(t.trafficLight)), new XElement("med", Convert.ToString(t.trafficMed)), new XElement("heavy", Convert.ToString(t.trafficHeavy)), new XElement("local", Convert.ToString(t.roadLocal)), new XElement("rural", Convert.ToString(t.roadRural)), new XElement("highway", Convert.ToString(t.roadHighway)), new XElement("day", Convert.ToString(t.day)), new XElement("approved", Convert.ToString(t.approved)));
-                xmlDoc.Save(filePath);
             }
             else
             {
-                XDocument xDocument = XDocument.Load(filePath);
-                XElement root = xDocument.Element("driverslog");
+                //Create XML document and add input data
+                XElement root = xmlDoc.Element("driverslog");
                 IEnumerable<XElement> rows = root.Descendants("trip");
                 XElement firstRow = rows.First();
                 firstRow.AddBeforeSelf(
@@ -132,8 +133,9 @@ namespace DriversLogbookApp
                    new XElement("highway", t.roadHighway),
                    new XElement("day", t.day),
                    new XElement("approved", t.approved)));
-                xDocument.Save("trips.xml");
             }
+            //Save document
+            xmlDoc.Save(filePath);
         }
 
         int elapsedTime = 0;
