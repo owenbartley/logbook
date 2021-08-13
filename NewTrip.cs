@@ -20,9 +20,11 @@ namespace DriversLogbookApp
             InitializeComponent();
         }
 
+        //Store file path
         string filePath = "trips.xml";
 
         bool start = true;
+        //Get todays date
         string date = DateTime.Now.ToShortDateString();
 
         public class Trip
@@ -44,15 +46,20 @@ namespace DriversLogbookApp
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
             //Turn button into switch and start timer
+            //Start button
             if (start == true)
             {
+                //Change button to 'stop' button
                 btnStartStop.Text = "Stop";
                 start = false;
+                //Start the timer from 0
                 elapsedTime = 0;
                 timer1.Start();
             }
+            //Stop button
             else
             {
+                //Stop the timer and store the elapsed time
                 timer1.Stop();
                 double duration = elapsedTime;
 
@@ -141,6 +148,7 @@ namespace DriversLogbookApp
         int elapsedTime = 0;
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            //Add a second every tick to elapsed time
             elapsedTime = elapsedTime + 1;
             var time = TimeSpan.FromSeconds(elapsedTime);
 
@@ -150,6 +158,7 @@ namespace DriversLogbookApp
 
         private void NewTrip_Load(object sender, EventArgs e)
         {
+            //Load XML document
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
 

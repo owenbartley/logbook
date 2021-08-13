@@ -14,6 +14,7 @@ namespace DriversLogbookApp
 {
     public partial class Home : Form
     {
+        //To store variables from array in
         public class Trip
         {
             public string date;
@@ -29,10 +30,10 @@ namespace DriversLogbookApp
             public bool day;
             public bool approved;
         }
-
-        string filePath = "trips.xml";
-
         Trip[] trips;
+
+        //Store file path
+        string filePath = "trips.xml";
 
         public Home()
         {
@@ -41,9 +42,9 @@ namespace DriversLogbookApp
 
         private void ReadXML(string filePath)
         {
+            //Load the document and its elements
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
-
             XmlNodeList xmlTripList = doc.GetElementsByTagName("trip");
 
             //Set the array size
@@ -62,8 +63,9 @@ namespace DriversLogbookApp
             int heavyTotal = 0;
             int dayTotal = 0;
             int nightTotal = 0;
-            int unapproved = 0;
+            double unapprovedDuration = 0;
 
+            //Get variables from XML and store in array
             foreach (XmlNode trip in xmlTripList)
             {
                 Trip theTrip = new Trip();
@@ -102,9 +104,12 @@ namespace DriversLogbookApp
                 string strTotalHours = totalHours.ToString(@"hh\:mm");
 
                 //Calculate total unapproved hours
-
+                if (approved == false)
+                {
+                    unapprovedDuration += duration;
+                }
                 //Calculate total daytime trips
-                if(day == true)
+                if (day == true)
                 {
                     dayTotal = dayTotal + 1;
                 }
@@ -149,7 +154,7 @@ namespace DriversLogbookApp
                     clearTotal = clearTotal + 1;
                 }
                 //Calcualte total rainy trips
-                else
+                if(weatherRain == true)
                 {
                     rainTotal = rainTotal + 1;
                 }
@@ -157,30 +162,35 @@ namespace DriversLogbookApp
                 trips[index] = theTrip;
                 index++;
 
-                //Display unapproved total
+                //Display unapproved total hours
+                TimeSpan totalUnapproved = TimeSpan.FromSeconds(unapprovedDuration);
+                //here backslash is must to tell that colon is
+                //not the part of format, it just a character that we want in output
+                string strUnapprovedHours = totalUnapproved.ToString(@"hh\:mm");
+                lblUnapproved.Text = strUnapprovedHours + " Unapproved Hours";
                 //Display total hours
                 lblHoursTotal.Text = strTotalHours + " Total Hours";
-                //Display highway total
-                lblHighwayTotal.Text = highwayTotal.ToString();
-                //Display local total
-                lblLocalTotal.Text = localTotal.ToString();
-                //Display rural total
-                lblRuralTotal.Text = ruralTotal.ToString();
-                //Display light total
-                lblLightTotal.Text = lightTotal.ToString();
-                //Display med total
-                lblMedTotal.Text = medTotal.ToString();
-                //Display heavy total
-                lblHeavyTotal.Text = heavyTotal.ToString();
-                //Display clear total
-                lblClearTotal.Text = clearTotal.ToString();
-                //Display rainy total
-                lblRainTotal.Text = rainTotal.ToString();
-                //Display day total
-                lblDayTotal.Text = dayTotal + "Day trips total";
-                //Display night total
-                lblNightTotal.Text = nightTotal + "Night trips total";
             }
+            //Display highway total
+            lblHighwayTotal.Text = highwayTotal.ToString();
+            //Display local total
+            lblLocalTotal.Text = localTotal.ToString();
+            //Display rural total
+            lblRuralTotal.Text = ruralTotal.ToString();
+            //Display light total
+            lblLightTotal.Text = lightTotal.ToString();
+            //Display med total
+            lblMedTotal.Text = medTotal.ToString();
+            //Display heavy total
+            lblHeavyTotal.Text = heavyTotal.ToString();
+            //Display clear total
+            lblClearTotal.Text = clearTotal.ToString();
+            //Display rainy total
+            lblRainTotal.Text = rainTotal.ToString();
+            //Display day total
+            lblDayTotal.Text = dayTotal + " Day trips total";
+            //Display night total
+            lblNightTotal.Text = nightTotal + " Night trips total";
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -198,18 +208,12 @@ namespace DriversLogbookApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //Go to Summary form
-            Hide();
-            Summary newSummaryForm = new Summary();
-            newSummaryForm.ShowDialog();
+            
         }
 
         private void BtnApprove_Click(object sender, EventArgs e)
         {
-            //Go to Approval form
-            Hide();
-            Approval newApprovalForm = new Approval();
-            newApprovalForm.ShowDialog();
+            
         }
 
         private void Label5_Click(object sender, EventArgs e)
