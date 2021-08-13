@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<trips>
+  <tripid="1001">
+    <date>20/03/2021</date>
+    <duration>63</duration>
+    <weatherRain>True</weatherRain>
+    <weatherClear>False</weatherClear>
+    <trafficLight>True</trafficLight>
+    <trafficMed>False</trafficMed>
+    <trafficHeavy>True</trafficHeavy>
+  </trip>
+</trips>
