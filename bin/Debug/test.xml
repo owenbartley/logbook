@@ -1,21 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <driverslog>
   <trip>
-    <duration>1000</duration>
-    <date>13/07/2021</date>
+    <duration>7500</duration>
+    <date>14/08/2021</date>
     <rain>false</rain>
     <clear>true</clear>
     <light>false</light>
     <med>true</med>
     <heavy>false</heavy>
     <local>false</local>
-    <rural>false</rural>
-    <highway>true</highway>
+    <rural>true</rural>
+    <highway>false</highway>
     <day>true</day>
     <approved>false</approved>
   </trip>
   <trip>
-    <duration>3200</duration>
+    <duration>2900</duration>
+    <date>14/08/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>false</approved>
+  </trip>
+  <trip>
+    <duration>6000</duration>
+    <date>14/08/2021</date>
+    <rain>true</rain>
+    <clear>false</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>7000</duration>
+    <date>14/08/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>false</med>
+    <heavy>true</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>1000</duration>
+    <date>14/08/2021</date>
+    <rain>true</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>false</med>
+    <heavy>true</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>false</approved>
+  </trip>
+  <trip>
+    <duration>1900</duration>
+    <date>12/08/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>true</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>true</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>6390</duration>
+    <date>15/07/2021</date>
+    <rain>true</rain>
+    <clear>false</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>true</heavy>
+    <local>true</local>
+    <rural>false</rural>
+    <highway>false</highway>
+    <day>false</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>5000</duration>
+    <date>15/07/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>3420</duration>
+    <date>13/07/2021</date>
+    <rain>false</rain>
+    <clear>true</clear>
+    <light>false</light>
+    <med>true</med>
+    <heavy>false</heavy>
+    <local>true</local>
+    <rural>true</rural>
+    <highway>false</highway>
+    <day>true</day>
+    <approved>true</approved>
+  </trip>
+  <trip>
+    <duration>320</duration>
     <date>02/02/2021</date>
     <rain>True</rain>
     <clear>False</clear>
